@@ -6,8 +6,10 @@
     <link rel="icon" type="image/png" href="images/favicon.png" />
     <link href="https://fonts.googleapis.com/css?family=Fjalla+One|Source+Sans+Pro" rel="stylesheet">
     <link rel="stylesheet" href="css/estilos.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
   <body>
+    <i class="icon-menu burger-button" id="burger-menu"></i>
     <header class="header">
       <div class="container">
         <figure class="logo">
@@ -68,7 +70,6 @@
           </figure>
         </article>
       </div>
-      
     </section>
     <div class="container">
       <h2 class="event-list-title">Más sobre mi experiencia</h2>
@@ -97,7 +98,11 @@
         </article>
         <article class="event">
           <figure class="event-imageContainer">
-            <img class="event-image" src="images/platzi-conf.jpg" width="500" />
+            <div class="flexible-video">
+              <iframe class="html-video" width="560" height="315" src="https://www.youtube.com/embed/LoKvxCSZw5w" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+              </iframe>
+            </div>
+            <!-- <img class="event-image" src="images/platzi-conf.jpg" width="500" /> -->
           </figure>
           <div class="event-detail">
             <h3 class="event-title">PlatziConf México 2018</h3>
@@ -139,10 +144,38 @@
         </div>
         <div>
           <p>
-            Designed with <\3 by <a href="https://twitter.com/thespianartist">@thespianartist</a>
+            Designed with <3 by <a href="https://twitter.com/thespianartist">@thespianartist</a>
           </p>
         </div>
       </div>
-    </footer>
+    </footer> 
+    <script>
+      // console.log('Hi world, this is my first lines in JS');
+      const ipad = window.matchMedia('screen and (max-width: 767px)')
+      const menu = document.querySelector('.menu');
+      // console.log(menu)
+      const burgerButton= document.querySelector('#burger-menu')
+      // console.log(burgerButton)
+
+      ipad.addListener(validation)
+
+      function validation(event) {
+        if(event.matches){
+          burgerButton.addEventListener('click',hideShow)
+        }else{
+          burgerButton.removeEventListener('click',hideShow)
+        }
+      }
+      validation(ipad);
+
+      function hideShow(){
+        if(menu.classList.contains('is-active')){
+          menu.classList.remove('is-active');
+        }else{
+          menu.classList.add('is-active');
+        }
+      }
+    
+    </script>
   </body>
 </html>
